@@ -1,5 +1,4 @@
 import Header from './Header';
-import SearchItem from './SearchItem';
 import AddItem from './AddItem';
 import Content from './Content';
 import Footer from './Footer';
@@ -8,7 +7,6 @@ import { useState } from 'react';
 function App() {
   const [items, setItems] = useState([]);
   const [newItem, setNewItem] = useState('')
-  const [search, setSearch] = useState('')
 
   const addItem = (item) => {
     const id = items.length ? items[items.length - 1].id + 1 : 1;
@@ -42,12 +40,8 @@ function App() {
         setNewItem={setNewItem}
         handleSubmit={handleSubmit}
       />
-      <SearchItem
-        search={search}
-        setSearch={setSearch}
-      />
       <Content
-        items={items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))}
+        items={items}
         handleCheck={handleCheck}
         handleDelete={handleDelete}
       />
