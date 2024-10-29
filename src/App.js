@@ -17,6 +17,13 @@ function App() {
   const handleCheck = (id) => {
     const listItems = items.map((item) => item.id === id ? { ...item, checked: !item.checked } : item);
     setItems(listItems);
+
+    // // what do you think about this line?  what will be the result?
+    // setItems(items.map((item) => item.id === id-1 ? { ...item, checked: !item.checked } : item));
+   
+   
+    // // maybe this way?
+    // setItems(prevItems => prevItems.map((item) => item.id === id-1 ? { ...item, checked: !item.checked } : item));
   }
 
   const handleDelete = (id) => {
