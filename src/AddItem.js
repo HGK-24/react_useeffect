@@ -1,15 +1,19 @@
 import { FaPlus } from 'react-icons/fa';
-import { useRef } from 'react';
+import { useState } from 'react';
 
-const AddItem = ({ newItem, setNewItem, handleSubmit }) => {
-    const inputRef = useRef();
+const AddItem = ({ addNewItem }) => {
+    const [newItem, setNewItem] = useState('')
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        addNewItem(newItem)
+        setNewItem('');
+    }
 
     return (
         <form className='addForm' onSubmit={handleSubmit}>
             <label htmlFor='addItem'>Add Item</label>
             <input
                 autoFocus
-                ref={inputRef}
                 id='addItem'
                 type='text'
                 placeholder='Add Item'
@@ -20,9 +24,9 @@ const AddItem = ({ newItem, setNewItem, handleSubmit }) => {
             <button
                 type='submit'
                 aria-label='Add Item'
-                onClick={() => inputRef.current.focus()}
             >
-                <FaPlus />
+                {/* this is the plus icon: */}
+                <FaPlus /> 
             </button>
         </form>
     )

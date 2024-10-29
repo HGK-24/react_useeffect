@@ -12,6 +12,8 @@ const LineItem = ({ item, handleCheck, handleDelete }) => {
                 style={(item.checked) ? { textDecoration: 'line-through' } : null}
                 onDoubleClick={() => handleCheck(item.id)}
             >{item.item}</label>
+           
+            {/* this is the trash icon: */}
             <FaTrashAlt
                 onClick={() => handleDelete(item.id)}
                 role="button"

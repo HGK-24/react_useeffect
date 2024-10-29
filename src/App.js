@@ -6,7 +6,6 @@ import { useState } from 'react';
 
 function App() {
   const [items, setItems] = useState([]);
-  const [newItem, setNewItem] = useState('')
 
   const addItem = (item) => {
     const id = items.length ? items[items.length - 1].id + 1 : 1;
@@ -25,21 +24,15 @@ function App() {
     setItems(listItems);
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const addNewItem = (newItem) => {
     if (!newItem) return;
     addItem(newItem);
-    setNewItem('');
   }
 
   return (
     <div className="App">
       <Header title="Grocery List" />
-      <AddItem
-        newItem={newItem}
-        setNewItem={setNewItem}
-        handleSubmit={handleSubmit}
-      />
+      <AddItem addNewItem={addNewItem} />
       <Content
         items={items}
         handleCheck={handleCheck}
