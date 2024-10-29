@@ -5,7 +5,8 @@ const ItemList = ({ items, handleCheck, handleDelete }) => {
         <ul>
             {items.map((item) => (
                 <LineItem
-                    key={item.id}
+                  // Why do we need this key?
+                    key={item.id} 
                     item={item}
                     handleCheck={handleCheck}
                     handleDelete={handleDelete}
